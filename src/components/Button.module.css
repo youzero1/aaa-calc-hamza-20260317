@@ -1,118 +1,81 @@
 .button {
-  position: relative;
+  border: none;
+  border-radius: var(--border-radius-btn);
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  border-radius: 14px;
-  height: 68px;
-  font-size: 1.25rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    background-color 0.12s ease,
-    transform 0.08s ease,
-    box-shadow 0.12s ease;
-  outline: none;
-  overflow: hidden;
+  padding: 0;
+  min-height: 64px;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.button::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0);
-  transition: background 0.1s ease;
-  border-radius: inherit;
-}
-
-.button:hover::after {
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .button:active {
-  transform: scale(0.93);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
 }
 
-.button:active::after {
-  background: rgba(0, 0, 0, 0.12);
-}
-
-.label {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Digit buttons */
 .digit {
-  background: #1e3a5f;
-  color: #e8eaf6;
+  background: var(--btn-digit);
+  color: #ffffff;
 }
 
 .digit:hover {
-  background: #254a7a;
+  background: var(--btn-digit-hover);
 }
 
-/* Operator buttons */
+.digit:active {
+  background: var(--btn-digit-active);
+}
+
 .operator {
-  background: #e94560;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 400;
+  background: var(--btn-operator);
+  color: #ffffff;
 }
 
 .operator:hover {
-  background: #ff5577;
+  background: var(--btn-operator-hover);
 }
 
-.activeOperator {
-  background: #fff !important;
-  color: #e94560 !important;
-  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4) !important;
+.operator:active {
+  background: var(--btn-operator-active);
 }
 
-/* Special buttons (C, +/-, %, backspace) */
 .special {
-  background: #533483;
-  color: #e8eaf6;
-  font-size: 1.1rem;
+  background: var(--btn-special);
+  color: #ffffff;
 }
 
 .special:hover {
-  background: #6a42a8;
+  background: var(--btn-special-hover);
 }
 
-/* Equals button */
+.special:active {
+  background: var(--btn-special-active);
+}
+
 .equals {
-  background: linear-gradient(135deg, #e94560, #c73850);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: 400;
-  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  background: var(--btn-equals);
+  color: #ffffff;
 }
 
 .equals:hover {
-  background: linear-gradient(135deg, #ff5577, #e94560);
-  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+  background: var(--btn-equals-hover);
 }
 
 .equals:active {
-  background: linear-gradient(135deg, #c73850, #a52e42);
+  background: var(--btn-equals-active);
 }
 
-@media (max-width: 400px) {
-  .button {
-    height: 58px;
-    font-size: 1.1rem;
-    border-radius: 12px;
-  }
+.zero {
+  grid-column: span 2;
+  background: var(--btn-zero);
+  color: #ffffff;
+}
 
-  .operator,
-  .equals {
-    font-size: 1.3rem;
-  }
+.zero:hover {
+  background: var(--btn-zero-hover);
 }

@@ -1,29 +1,14 @@
 .calculator {
-  background: #16213e;
-  border-radius: 24px;
+  background: var(--bg-calc);
+  border-radius: var(--border-radius-calc);
+  box-shadow: var(--shadow);
   padding: 24px;
-  width: 340px;
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  user-select: none;
+  width: 100%;
+  max-width: 360px;
 }
 
-.keypad {
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 16px;
-}
-
-@media (max-width: 400px) {
-  .calculator {
-    width: 300px;
-    padding: 18px;
-  }
-
-  .keypad {
-    gap: 8px;
-  }
+  gap: 10px;
 }

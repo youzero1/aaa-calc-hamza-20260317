@@ -1,0 +1,83 @@
+null) return;
+
+    const inputValue = parseFloat(displayValue);
+    const result = calculate(firstOperand, operator, inputValue);
+    const resultStr = formatNumber(result);
+
+    setExpression(`${firstOperand} ${operator} ${displayValue} =`);
+    setDisplayValue(resultStr);
+    setFirstOperand(null);
+    setOperator(null);
+    setWaitingForSecondOperand(false);
+  }, [displayValue, firstOperand, operator]);
+
+  const handleClear = useCallback(() => {
+    setDisplayValue('0');
+    setExpression('');
+    setFirstOperand(null);
+    setOperator(null);
+    setWaitingForSecondOperand(false);
+  }, []);
+
+  const handleNegate = useCallback(() => {
+    setDisplayValue((prev) => {
+      const num = parseFloat(prev);
+      if (num === 0) return prev;
+      return formatNumber(-num);
+    });
+  }, []);
+
+  const handlePercent = useCallback(() => {
+    setDisplayValue((prev) => {
+      const num = parseFloat(prev);
+      return formatNumber(num / 100);
+    });
+  }, []);
+
+  const handleButtonClick = useCallback((action: string) => {
+    switch (action) {
+      case 'clear':
+        handleClear();
+        break;
+      case 'negate':
+        handleNegate();
+        break;
+      case 'percent':
+        handlePercent();
+        break;
+      case '=':
+        handleEquals();
+        break;
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+        handleOperator(action);
+        break;
+      case '.':
+        inputDecimal();
+        break;
+      default:
+        inputDigit(action);
+        break;
+    }
+  }, [handleClear, handleNegate, handlePercent, handleEquals, handleOperator, inputDecimal, inputDigit]);
+
+  return (
+    <div className={styles.calculator}>
+      <Display expression={expression} value={displayValue} />
+      <div className={styles.grid}>
+        {buttons.map((btn) => (
+          <Button
+            key={btn.label}
+            label={btn.label}
+            variant={btn.variant}
+            onClick={() => handleButtonClick(btn.action)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Calculator;

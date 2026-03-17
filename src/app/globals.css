@@ -1,0 +1,58 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-page: #1a1a2e;
+  --bg-calc: #16213e;
+  --bg-display: #0f3460;
+  --color-display-text: #e0e0e0;
+  --color-display-expression: #a0a0b0;
+  --btn-digit: #1e3a5f;
+  --btn-digit-hover: #254a7a;
+  --btn-digit-active: #1a3050;
+  --btn-operator: #e94560;
+  --btn-operator-hover: #ff5577;
+  --btn-operator-active: #c73850;
+  --btn-special: #533483;
+  --btn-special-hover: #6a42a8;
+  --btn-special-active: #422a6a;
+  --btn-equals: #e94560;
+  --btn-equals-hover: #ff5577;
+  --btn-equals-active: #c73850;
+  --btn-zero: #1e3a5f;
+  --btn-zero-hover: #254a7a;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --border-radius-calc: 24px;
+  --border-radius-btn: 14px;
+  --font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-page);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(83, 52, 131, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(233, 69, 96, 0.1) 0%, transparent 50%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#__next {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
